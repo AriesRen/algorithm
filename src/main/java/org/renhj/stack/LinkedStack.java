@@ -1,13 +1,12 @@
 package org.renhj.stack;
 
-public class LinkedStack implements stack{
-    @Override
-    public void push(Object val) {
+public class LinkedStack<T> implements stack<T>{
+
+    public void push(T val) {
 
     }
 
-    @Override
-    public Object pop() {
+    public T pop() {
         return null;
     }
 }

@@ -3,19 +3,37 @@ package org.renhj.stack;
 public class ArrayStack<T> implements stack<T> {
     private final Object [] DEFAULT_ARRAY = new Object[10];
     private final int DEFAULT_CAP = 10;
+    private Object[] data;
+    private int  cap;
+    private int size;
 
     public ArrayStack() {
-
+        this.cap = DEFAULT_CAP;
+        this.size = 0;
+        this.data = DEFAULT_ARRAY;
     }
-
-
-    @Override
-    public void push(Object val) {
-
+    public ArrayStack(int cap){
+        if (cap < 0) throw new IllegalArgumentException("Illegal Capacity: "+ cap);
+        this.cap = cap;
+        this.data = new Object[cap];
     }
-
-    @Override
+    public void push(T val) {
+        if (size<cap){
+            // 数组满了
+            data[size] = val;
+            size++;
+        }else {
+            Object[] objects = new Object[cap*2];
+            System.arraycopy(data, 0, objects, 0, size);
+            data = objects;
+            data[size] = val;
+            size ++;
+        }
+    }
     public T pop() {
-        return null;
+        if (size == 0) return null;
+        T result = (T) data[size-1];
+        size--;
+        return result;
     }
 }
