@@ -10,24 +10,24 @@ public class LinkedListUtil {
      * 5、求链表的中间节点
      */
 
-    public static void reverse(SinglyLinkedList<Object> list){
-        list.push("2");
-        list.push(3);
+    public static <T> void reverse(SinglyLinkedList<T> list){
+        System.out.println(list);
+
     }
 
-    public static boolean checkCircle(SinglyLinkedList<Object> linkedList){
+    public static <T>  boolean checkCircle(SinglyLinkedList<T>  linkedList){
         return true;
     }
 
-    public static SinglyLinkedList<Object> merageList(SinglyLinkedList<Object> l1,SinglyLinkedList<Object> l2){
+    public static <T>  SinglyLinkedList<T> merageList(SinglyLinkedList<T> l1,SinglyLinkedList<T> l2){
         return new SinglyLinkedList<>();
     }
 
-    public static void deleteLastKth(SinglyLinkedList<Object> linkedList, Object val){
+    public static <T>  void deleteLastKth(SinglyLinkedList<T> linkedList, T val){
 
     }
 
-    public static int getMiddle(SinglyLinkedList<Object> linkedList){
+    public static <T>  int getMiddle(SinglyLinkedList<T> linkedList){
         return 0;
     }
 }

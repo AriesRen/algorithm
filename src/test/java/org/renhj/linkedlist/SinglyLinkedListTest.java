@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
 public class SinglyLinkedListTest {
 
     private SinglyLinkedList<Integer> slist = new SinglyLinkedList<>();
+    private LinkedList<?> linkedList = new LinkedList<>();
 
     @Test
     public void linkLast() {

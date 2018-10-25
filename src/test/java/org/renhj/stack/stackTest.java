@@ -36,7 +36,7 @@ public class stackTest {
     @Test
     public void test(){
         Stack<String> stack = new Stack<String>();
-        stack.push("stack");
+//        stack.push("stack");
         System.out.println(stack.pop());
     }
 }

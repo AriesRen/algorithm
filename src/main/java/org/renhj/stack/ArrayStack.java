@@ -1,5 +1,7 @@
 package org.renhj.stack;
 
+import java.util.EmptyStackException;
+
 public class ArrayStack<T> implements stack<T> {
     private final Object [] DEFAULT_ARRAY = new Object[10];
     private final int DEFAULT_CAP = 10;
@@ -31,7 +33,7 @@ public class ArrayStack<T> implements stack<T> {
         }
     }
     public T pop() {
-        if (size == 0) return null;
+        if (size == 0) throw new RuntimeException("EmptyStackException: 栈空");
         T result = (T) data[size-1];
         size--;
         return result;
