@@ -88,8 +88,12 @@ public class SinglyLinkedListTest {
         slist.add(2);
         System.out.println(slist);
         Assert.assertEquals(slist.pop().intValue(), 1);
+        System.out.println(slist);
         slist.push(3);
+        System.out.println(slist);
         Assert.assertEquals(slist.pop().intValue(), 3);
+        slist.pop();
+        System.out.println(slist);
     }
 
     @Test
@@ -120,5 +124,16 @@ public class SinglyLinkedListTest {
         System.out.println(slist);
         System.out.println("index = "+ slist.indexOf(4));
     }
+
+    @Test
+    public void reverse(){
+        slist.add(1);
+        slist.add(2);
+        slist.add(3);
+        System.out.println(slist);
+        slist.reverse();
+        System.out.println(slist);
+    }
+
 
 }

@@ -1,5 +1,9 @@
 package org.renhj.linkedlist;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedList;
+
 public class LinkedListUtil {
 
     /**
@@ -10,9 +14,13 @@ public class LinkedListUtil {
      * 5、求链表的中间节点
      */
 
-    public static <T> void reverse(SinglyLinkedList<T> list){
-        System.out.println(list);
-
+    public static <T> SinglyLinkedList<T> reverse(SinglyLinkedList<T> original){
+        SinglyLinkedList<T> linkedList = new SinglyLinkedList<T>();
+        int size = original.size();
+        for (int i=0; i<size;i++){
+            linkedList.push(original.pop());
+        }
+        return linkedList;
     }
 
     public static <T>  boolean checkCircle(SinglyLinkedList<T>  linkedList){

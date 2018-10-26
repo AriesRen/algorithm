@@ -28,7 +28,7 @@ public class SinglyLinkedList<T>{
         }
         p.next = newNode;
         size++;
-    }
+}
     // 获取头部值
     public T getFirst(){
         if (head.next == null){
@@ -80,20 +80,21 @@ public class SinglyLinkedList<T>{
         return true;
     }
     // 根据索引删除某结点
-    public boolean delete(int index){
+    public T delete(int index){
         Node<T> deleteNode = node(index);
         return deleteNode(deleteNode);
     }
-    private boolean deleteNode(Node<T> deleteNode){
+    private T deleteNode(Node<T> deleteNode){
+        final T element = deleteNode.val;
         Node<T> p = head;
         while (p.next!= null && p.next != deleteNode){
             p = p.next;
         }
         if (p.next == null){
-            return true;
+            return null;
         }
         p.next = deleteNode.next;
-        return true;
+        return element;
     }
 
     // 根据索引获取值
@@ -143,10 +144,42 @@ public class SinglyLinkedList<T>{
         linkFirst(newNode);
     }
     public T pop(){
-        if (head.next!= null){
-            return head.next.val;
+        return unlinkedFirst();
+    }
+
+    private T unlinkedFirst(){
+        Node<T> first = head.next;
+        if (first == null){
+            throw new RuntimeException("没有元素");
         }
-        return null;
+        return unlinkedFirst(first);
+    }
+    private T unlinkedFirst(Node<T> node){
+        final T element = node.val;
+        head.next = head.next.next;
+        node.next = null;
+        node.val = null;
+        size--;
+        return element;
+    }
+
+    // 单链表反转
+    public void reverse(){
+        // 链表为空或者链表只有一个元素时
+        if (head.next == null || size <=1 ){
+            return;
+        }
+        Node<T> p = head.next;
+        Node<T> q = p.next;
+        Node<T> r;
+        p.next = null;
+        while (q !=null){
+            r = q.next;
+            q.next = p;
+            p = q;
+            q = r;
+        }
+        head.next = p;
     }
 
     public int size(){
