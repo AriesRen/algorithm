@@ -10,13 +10,12 @@ import static org.junit.Assert.*;
 
 public class SinglyLinkedListTest {
 
-    private SinglyLinkedList<Integer> slist = new SinglyLinkedList<>();
+    private SingleLinkedList<Integer> slist = new SingleLinkedList<>();
     private LinkedList<?> linkedList = new LinkedList<>();
 
     @Test
     public void linkLast() {
-        slist.linkLast(1);
-        slist.linkLast(2);
+        slist.add(1);
         Assert.assertEquals(slist.toString(), "[1, 2]");
     }
 
@@ -106,13 +105,13 @@ public class SinglyLinkedListTest {
 
     @Test
     public void delete(){
-        SinglyLinkedList<String> slist = new SinglyLinkedList<>();
+        SingleLinkedList<String> slist = new SingleLinkedList<>();
         slist.add("1");
         slist.add("2");
         slist.add("3");
         System.out.println(slist);
-        boolean b = slist.delete("3");
-        System.out.println(b);
+        String d = slist.delete("3");
+        System.out.println(d);
         System.out.println(slist);
     }
 

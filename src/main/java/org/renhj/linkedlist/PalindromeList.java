@@ -8,7 +8,7 @@ public class PalindromeList {
     }
 
     public static boolean isPalinkdromeList(String s){
-        SinglyLinkedList<Character> linkedList = new SinglyLinkedList<>();
+        SingleLinkedList<Character> linkedList = new SingleLinkedList<>();
         for (char c:s.toCharArray()){
             linkedList.push(c);
 

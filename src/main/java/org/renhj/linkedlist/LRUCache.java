@@ -9,7 +9,7 @@ public interface LRUCache<T> {
 }
 
 class ListLRUCache<T> implements LRUCache<T> {
-    private SinglyLinkedList<T> lruList;
+    private SingleLinkedList<T> lruList;
     private static final int DEFAULT_CAP=10;
 
     // 缓存容量
@@ -22,7 +22,7 @@ class ListLRUCache<T> implements LRUCache<T> {
     }
     public ListLRUCache(int cap){
         this.cap = cap;
-        this.lruList = new SinglyLinkedList<>();
+        this.lruList = new SingleLinkedList<>();
     }
 
     @Override
@@ -32,7 +32,7 @@ class ListLRUCache<T> implements LRUCache<T> {
         if (size == cap){
             // 1、缓存满了
             // 删除最后一个节点
-            lruList.delete(size-1);
+            lruList.delete(value);
             // 将该数据插入到链表头部
             lruList.push(value);
         }else {
@@ -52,7 +52,7 @@ class ListLRUCache<T> implements LRUCache<T> {
             result = lruList.get(index);
             System.out.println("从缓存中获取");
             // 将该节点插入到链表头部
-            lruList.delete(index);
+            lruList.delete(val);
             lruList.push(val);
         }else{
             // 如果该列表中没有该数据
@@ -60,7 +60,7 @@ class ListLRUCache<T> implements LRUCache<T> {
             if (size == cap){
                 // 1、缓存满了
                 // 删除最后一个节点
-                lruList.delete(size-1);
+                lruList.delete(val);
                 // 将该数据插入到链表头部
                 lruList.push(val);
                 System.out.println("缓存已满！将该数据插入到缓存");
