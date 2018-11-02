@@ -9,14 +9,14 @@ public class LinkedListUtilTest {
 
     @Test
     public void test(){
-        SinglyLinkedList<Integer> linkedList = new SinglyLinkedList<Integer>();
+        SingleLinkedList<Integer> linkedList = new SingleLinkedList<Integer>();
         linkedList.add(1);
         linkedList.add(2);
         linkedList.add(3);
         System.out.println("反转前linkedlist："+linkedList);
 
 
-        SinglyLinkedList<Integer> newList = LinkedListUtil.reverse(linkedList);
+        SingleLinkedList<Integer> newList = LinkedListUtil.reverse(linkedList);
         System.out.println(linkedList);
         System.out.println(newList); // [3, 2, 1]
     }
