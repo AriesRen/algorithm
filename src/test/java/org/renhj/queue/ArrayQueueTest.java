@@ -12,6 +12,7 @@ public class ArrayQueueTest {
         arrayQueue.enqueue("aaa");
         arrayQueue.enqueue("bbb");
         arrayQueue.enqueue("ccc");
+        System.out.println(arrayQueue.dequeue());
     }
 
     @Test
