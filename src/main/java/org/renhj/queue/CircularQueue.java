@@ -1,9 +1,6 @@
 package org.renhj.queue;
 
-/**
- * 基于数组实现的队列
- */
-public class ArrayQueue<T> implements Queue<T> {
+public class CircularQueue<T> implements Queue<T> {
     // 数组items
     private Object[] items;
     // 队列大小
@@ -13,31 +10,20 @@ public class ArrayQueue<T> implements Queue<T> {
     private int head=0;
     private int tail=0;
 
-    public ArrayQueue(){
+    public CircularQueue(){
         this(10); // 队列默认容量给10
     }
-    public ArrayQueue(int capacity){
+    public CircularQueue(int capacity){
         this.items = new Object[capacity];
         this.capacity = capacity;
     }
 
-    @Override
     public boolean enqueue(T val){
-        if(size == capacity){return false;} // 队列满了
-        items[tail] = val;
-        size ++;
-        tail ++;
         return true;
     }
-    @Override
+
     public T dequeue(){
-        if (size == 0) {
-            return null;
-        }
-        T res = (T)items[head];
-        head++;
-        size--;
-        return res;
+       return null;
     }
 
     @Override
