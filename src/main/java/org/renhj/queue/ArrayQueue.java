@@ -1,5 +1,7 @@
 package org.renhj.queue;
 
+import java.util.Arrays;
+
 /**
  * 基于数组实现的队列
  */
@@ -23,7 +25,16 @@ public class ArrayQueue<T> implements Queue<T> {
 
     @Override
     public boolean enqueue(T val){
-        if(size == capacity){return false;} // 队列满了
+        if(size == capacity){
+            throw new RuntimeException("队列满了!");
+        } // 队列满了
+        if (tail == capacity && size < capacity){
+            for (int i=head; i< tail; i++){
+                items[i-head] = items[i];
+            }
+            head = 0;
+            tail = size;
+        }
         items[tail] = val;
         size ++;
         tail ++;
@@ -35,9 +46,15 @@ public class ArrayQueue<T> implements Queue<T> {
             return null;
         }
         T res = (T)items[head];
+        items[head] = null;
         head++;
         size--;
         return res;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(items);
     }
 
     @Override
