@@ -1,6 +1,5 @@
 package org.renhj.linkedlist;
 
-import org.omg.PortableInterceptor.INACTIVE;
 
 /**
  * 链表的一些算法题目
@@ -169,7 +168,6 @@ public class LinkListAlgorithm {
         }
         return p;
     }
-
 
     private static class Node<E> {
         E val;
