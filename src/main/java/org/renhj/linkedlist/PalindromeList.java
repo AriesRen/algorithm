@@ -11,7 +11,6 @@ public class PalindromeList {
         SingleLinkedList<Character> linkedList = new SingleLinkedList<>();
         for (char c:s.toCharArray()){
             linkedList.push(c);
-
         }
         System.out.println(linkedList);
         return true;
