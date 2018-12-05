@@ -2,6 +2,10 @@ package org.renhj.sorts;
 
 import java.util.Arrays;
 
+/**
+ * 快速排序
+ *
+ */
 public class QuickSort {
 
     public static void main(String[] args) {
