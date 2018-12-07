@@ -1,5 +1,6 @@
 package org.renhj.sorts;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Arrays;
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{9,7,4,6,34,2,4,1,10,123333, 0, -2};
+        int[] arr = new int[]{9,7,4,6,34,2,4,1,10,12};
         quickSort(arr, arr.length);
         System.out.println(Arrays.toString(arr));
     }
@@ -19,11 +20,12 @@ public class QuickSort {
         quickSort(arr, 0 , n-1);
     }
     private static void quickSort(int[] arr, int left, int right) {
-        if (left>=right) return; // 重要，不然会导致栈溢出
-        int mid = partation(arr, left, right);
+        if (left>=right) return;
+        int mid = partation1(arr, left, right);
         quickSort(arr, left, mid-1);
         quickSort(arr, mid+1, right);
     }
+
 
     // 查找中间位置
     private static int partation(int[] arr, int left, int right) {
@@ -45,6 +47,22 @@ public class QuickSort {
         arr[i] = base;
         return i;
 
+    }
+    // 查找中间位置
+    private static int partation1(int[] a, int left, int right){
+        int pivot = a[right];
+        int i = left;
+        for (int j=left; j<=right-1;j++){
+            if (a[j]<pivot){
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+                i++;
+            }
+        }
+        a[right] = a[i];
+        a[i] = pivot;
+        return i;
     }
 
 
