@@ -2,6 +2,9 @@ package org.renhj.sorts;
 
 import java.util.Arrays;
 
+/**
+ * 插入排序
+ */
 public class InsertSort {
     public static void main(String[] args) {
         int[] arr = new int[]{3,4,1,56,134,76,7,4};

@@ -2,6 +2,9 @@ package org.renhj.sorts;
 
 import java.util.Arrays;
 
+/**
+ * 冒泡排序
+ */
 public class BubbleSort {
     public static void main(String[] args) {
         int[] arr = new int[]{3,4,1,56,134,76,7,4};
